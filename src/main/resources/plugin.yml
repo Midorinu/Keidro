@@ -1,0 +1,22 @@
+name: Keidro
+version: ${project.version}
+main: dev.m1n1don.keidro.KeidroPlugin
+api-version: 1.16
+author: M1n1don
+
+commands:
+  keidro:
+    description: ケイドロ操作コマンド
+    aliases:
+      - kd
+      - keidoro
+  police:
+    description: 警察抽選に応募するコマンド
+    aliases:
+      - p
+  spectator:
+    description: 観戦モードコマンド
+    aliases:
+      - spec
+  /texture:
+    description: テクスチャ読み込みコマンド
