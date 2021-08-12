@@ -2,6 +2,7 @@ package dev.m1n1don.keidro.commands.keidro;
 
 import dev.m1n1don.keidro.command.ISubCommand;
 import dev.m1n1don.keidro.commands.keidro.subs.*;
+import dev.m1n1don.keidro.commands.keidro.timer.Timer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -50,7 +51,9 @@ public class Keidro implements CommandExecutor, TabExecutor
         START(new Start()),
         END(new End()),
         RESET(new Reset()),
-        POLICE(new Police());
+        POLICE(new Police()),
+        TIMER(new Timer()),
+        JAIL(new Jail());
 
         private final ISubCommand subCommand;
 

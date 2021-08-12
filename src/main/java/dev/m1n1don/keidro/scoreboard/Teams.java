@@ -21,13 +21,13 @@ public class Teams
 
     public void setTeams()
     {
-        setTeam(dorobo, "Dorobo", ChatColor.WHITE);
-        setTeam(police, "Police", ChatColor.BLUE);
-        setTeam(jail, "Jail", ChatColor.GRAY);
-        setTeam(admin, "Admin", ChatColor.GOLD);
+        dorobo = setTeam(dorobo, "Dorobo", ChatColor.WHITE);
+        police = setTeam(police, "Police", ChatColor.BLUE);
+        jail = setTeam(jail, "Jail", ChatColor.GRAY);
+        admin = setTeam(admin, "Admin", ChatColor.GOLD);
     }
 
-    private void setTeam(Team team, String name, ChatColor color)
+    private Team setTeam(Team team, String name, ChatColor color)
     {
         team = board.getTeam(name);
         if (team == null)
@@ -39,6 +39,7 @@ public class Teams
             team.setOption(Team.Option.NAME_TAG_VISIBILITY, Team.OptionStatus.FOR_OTHER_TEAMS);
             team.setAllowFriendlyFire(false);
         }
+        return team;
     }
 
     public void resetTeams()

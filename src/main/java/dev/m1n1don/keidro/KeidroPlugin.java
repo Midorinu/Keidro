@@ -5,9 +5,8 @@ import dev.m1n1don.keidro.commands.keidro.Keidro;
 import dev.m1n1don.keidro.commands.police.Police;
 import dev.m1n1don.keidro.commands.spectator.Spectator;
 import dev.m1n1don.keidro.commands.texture.Texture;
-import dev.m1n1don.keidro.listeners.EntityDamage;
-import dev.m1n1don.keidro.listeners.PlayerConnection;
-import dev.m1n1don.keidro.listeners.PlayerDeath;
+import dev.m1n1don.keidro.listeners.*;
+import dev.m1n1don.keidro.scoreboard.Teams;
 import dev.m1n1don.keidro.scoreboard.fastboard.FastBoard;
 import org.bukkit.ChatColor;
 
@@ -17,7 +16,7 @@ import java.util.UUID;
 
 public class KeidroPlugin extends AbstractKeidroPlugin
 {
-    public static String PREFIX = ChatColor.BLUE + "[" + ChatColor.AQUA + "ケイドロ" + ChatColor.BLUE + "] ";
+    public static String PREFIX = ChatColor.WHITE + "[" + ChatColor.BLUE + "ケイドロ" + ChatColor.WHITE + "] ";
     private static KeidroPlugin plugin;
 
     private final Map<UUID, FastBoard> boards = new HashMap<>();
@@ -27,8 +26,11 @@ public class KeidroPlugin extends AbstractKeidroPlugin
     {
         plugin = this;
 
+        Teams.get().setTeams();
+
         registerListeners(
                 new EntityDamage(),
+                new InventoryClick(),
                 new PlayerConnection(),
                 new PlayerDeath()
         );
@@ -44,6 +46,7 @@ public class KeidroPlugin extends AbstractKeidroPlugin
     @Override
     public void onDisable()
     {
+        Teams.get().resetTeams();
     }
 
     public static KeidroPlugin getPlugin()

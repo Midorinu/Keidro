@@ -16,8 +16,7 @@ public class AbstractKeidroPlugin extends JavaPlugin
         for (Command command : commands)
         {
             getCommand(command.getName()).setExecutor(command.getExecutor());
-            if (command.getTabCompleter() == null) return;
-            getCommand(command.getName()).setTabCompleter(command.getTabCompleter());
+            if (command.getTabCompleter() != null) getCommand(command.getName()).setTabCompleter(command.getTabCompleter());
         }
     }
 }

@@ -24,7 +24,16 @@ public class Police implements CommandExecutor
             return true;
         }
 
+        final Player p = (Player) sender;
+        if (players.contains(p))
+        {
+            players.remove(p);
+            sender.sendMessage(KeidroPlugin.PREFIX + ChatColor.RED + "警察抽選への応募をキャンセルしました。");
+            return true;
+        }
 
+        players.add(p);
+        sender.sendMessage(KeidroPlugin.PREFIX + ChatColor.GOLD + "警察抽選に応募しました。");
         return true;
     }
 

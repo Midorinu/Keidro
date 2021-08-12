@@ -3,6 +3,8 @@ version: ${project.version}
 main: dev.m1n1don.keidro.KeidroPlugin
 api-version: 1.16
 author: M1n1don
+depend:
+  - WorldEdit
 
 commands:
   keidro:
